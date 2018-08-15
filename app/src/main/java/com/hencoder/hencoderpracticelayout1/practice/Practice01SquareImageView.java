@@ -27,6 +27,14 @@ public class Practice01SquareImageView extends ImageView {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        int measuredHeight = getMeasuredHeight();
+        int measuredWidth = getMeasuredWidth();
+        if (measuredWidth > measuredHeight) {
+            measuredWidth = measuredHeight;
+        } else {
+            measuredHeight = measuredWidth;
+        }
+        setMeasuredDimension(measuredWidth, measuredHeight);
 
         // 先用 getMeasuredWidth() 和 getMeasuredHeight() 取到 super.onMeasure() 的计算结果
 
